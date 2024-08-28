@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.222.25.3:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8mb4&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Aa3387968894
+
+resources.root.path: /opt/resouces
+log.root.path: /opt/log
+douyin.root.path:
+bilibili.root.path:
+
+logging.config: classpath:logback.xml

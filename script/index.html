@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Initialize the agent at application startup.
+        // If you're using an ad blocker or Brave/Firefox, this import will not work.
+        // Please use the NPM package instead: https://t.ly/ORyXk
+        const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4').then(FingerprintJS => FingerprintJS.load())
+        // Get the visitor identifier when you need it.
+        fpPromise
+            .then(fp => fp.get())
+            .then(result => {
+            // console.log(result)
+            // This is the visitor identifier:
+            let rendererUnmasked = result.components.webGlBasics.value.rendererUnmasked
+            let vendorUnmasked = result.components.webGlBasics.value.vendorUnmasked
+            let param = rendererUnmasked + vendorUnmasked
+            console.log(param)
+            let dm_cover_img_str = B(param);
+            console.log(dm_cover_img_str);
+        })
+
+        B = function(t) {
+            var e = (new TextEncoder).encode(t).buffer
+                , n = new Uint8Array(e)
+                , r = btoa(String.fromCharCode.apply(null, n));
+            return r.substring(0, r.length - 2);
+        };
+      </script>
+</body>
+</html>
