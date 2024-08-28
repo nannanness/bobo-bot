@@ -1,6 +1,9 @@
 HELP.md
 target/
 resouces
+db/
+/db/
+db
 cache
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
